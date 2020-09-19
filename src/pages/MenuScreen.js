@@ -1,13 +1,12 @@
 import React from 'react';
 import Button from '../components/Button';
+import Header from '../components/Header';
 import Input from '../components/Input'
 
 const MenuScreen = () => {
     return (
         <>
-            <h1>Menu Screen</h1>
-            <Button></Button>
-            <Input></Input>
+            <Header></Header>
         </>
     )
 }
