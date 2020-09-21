@@ -15,8 +15,8 @@ export const ContainerHeader = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 19.25rem;
-  height: 3.875rem;
+  width: 359.51px;
+  height: 96.05px;
 
   @media (max-width: 599px) {
     width: 12.13rem;

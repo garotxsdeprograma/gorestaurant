@@ -7,7 +7,7 @@ const Button = (props, { placeholder, type }) => {
     return (
         <>
             <S.ContainerBox>
-                Novo Prato
+                {props.children}
                <S.ContainerIcon><FiPlusSquare  /></S.ContainerIcon>
             </S.ContainerBox>
         </>

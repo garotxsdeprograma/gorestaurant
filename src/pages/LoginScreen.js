@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+import Header from "../components/Header";
+import Login from "../components/Login";
 
-const LoginScreen = () => {
-    return (
-        <>
-            <h1>Login Screen</h1>
-        </>
-    )
-}
+const LoginScreen = (props) => {
+  return (
+    <>
+      <Header></Header>
+      <Login></Login>
+    </>
+  );
+};
 
 export default LoginScreen;
