@@ -1,28 +1,13 @@
 import React from "react";
 import Button from "../Button";
 import * as S from "./style";
-import Logo from 'C:/Users/julio/Desktop/Freela/gorestaurant/src/assets/Logo.svg'
+import Logo from '/home/henrique/Codes/gorestaurant/src/assets/Logo.svg'
+import {connect} from 'react-redux'
 
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleLoginClick = this.handleLoginClick.bind(this);
-        this.handleLogoutClick = this.handleLogoutClick.bind(this);
-        this.state = { isLoggedIn: true };
-    }
-
-    handleLoginClick() {
-
-        this.setState({ isLoggedIn: true });
-    }
-
-    handleLogoutClick() {
-        this.setState({ isLoggedIn: false });
-    }
-
     render() {
-        const isLoggedIn = this.state.isLoggedIn;
+        const isLoggedIn = this.props.isLoggedIn;
         let btn;
         if (isLoggedIn) {
             btn = <Button>Novo Prato</Button>;
@@ -40,4 +25,10 @@ class Header extends React.Component {
     };
 };
 
-export default Header;
+const mapStoreToProps = (store) => {
+    return {
+        isLoggedIn: store.isLoggedIn
+    }
+}
+
+export default connect(mapStoreToProps)(Header);

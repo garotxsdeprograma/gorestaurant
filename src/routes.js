@@ -8,12 +8,12 @@ import MenuScreen from "./pages/MenuScreen";
 export default function Routes() {
     return (
         <BrowserRouter>
-        <Switch>
-            <Route exact={true} path="/" component={MenuScreen} />
-            <Route path="/admin" component={MealsScreen} />
-            <Route path="/login" component={LoginScreen} />
-            <Route path="/forgotpassword" component={ForgotPasswordScreen} />
-        </Switch>
+            <Switch>
+                <Route exact={true} path="/" component={MenuScreen} />
+                <Route path="/admin" component={MealsScreen} />
+                <Route path="/login" component={LoginScreen} />
+                <Route path="/forgotpassword" component={ForgotPasswordScreen} />
+            </Switch>
         </BrowserRouter>
     );
 }

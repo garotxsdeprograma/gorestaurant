@@ -1,10 +1,12 @@
-const initialState = { text: 'Este texto' }
+const initialState = { isLoggedIn: false }
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case 'SET_TEXT':
-            return { ...state, text: action.payload }
+        case 'UPDATE_LOGIN':
+            return { ...state, isLoggedIn: action.isLoggedIn }
         default:
             return state
     }
 }
+
+// Stores, Reducer, Connect & Dispatch Action

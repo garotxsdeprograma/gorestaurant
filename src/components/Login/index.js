@@ -1,47 +1,37 @@
 import React, { Component } from "react";
 import * as S from "./style";
 import illustration from "../../assets/illustration.svg";
-import { FiTrash2, FiEdit3 } from "react-icons/fi";
 import { cpfMask } from "./mask";
 import Button from "../Button";
-import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    
-      this.state = { documentId: "" };
-      this.handlechange = this.handlechange.bind(this);
 
-    this.state = { isLoggedIn: true };
-    
+    this.state = { documentId: "" };
+    this.handlechange = this.handlechange.bind(this);
+    this.handleLoginClick = this.handleLoginClick.bind(this)
+    this.handleLogoutClick = this.handleLogoutClick.bind(this)
+
   }
 
-     handleLoginClick() {   
-          this.setState({ isLoggedIn: true });
-      }
+  handleLoginClick() {
+    this.props.dispatch({ type: "UPDATE_LOGIN", isLoggedIn: true })
+    this.props.history.push('/')
+  }
 
-      handleLogoutClick() {
-          this.setState({ isLoggedIn: false });
-      }
-    
-  
+  handleLogoutClick() {
+    this.props.dispatch({ type: "UPDATE_LOGIN", isLoggedIn: false })
+  }
 
   handlechange(e) {
     this.setState({ documentId: cpfMask(e.target.value) });
   }
 
+  render() {
+    const { documentId } = this.state;
 
-    render() {
-      const { documentId } = this.state;
-
-      const isLoggedIn = this.state.isLoggedIn;
-      let btn;
-      if (isLoggedIn) {
-          btn = <Link to="/" style={{ textDecoration: "none" }}><Button onClick={this.handleLoginClick}>Entrar</Button></Link>;
-      } else {
-          btn = "";
-      }
     return (
       <>
         <S.ContainerLogin>
@@ -61,7 +51,7 @@ class Login extends Component {
               type="password"
               maxLength="8"
             ></S.PasswordInput>
-                    {btn}
+            <Button onClick={this.handleLoginClick} >Entrar</Button>
           </S.Form>
           <S.Illustration
             type="image/svg+xml"
@@ -73,4 +63,10 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStoreToProps = (store) => {
+  return {
+    isLoggedIn: store.isLoggedIn
+  }
+}
+
+export default connect(mapStoreToProps)(Login);
