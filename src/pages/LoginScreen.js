@@ -6,7 +6,7 @@ const LoginScreen = (props) => {
   return (
     <>
       <Header></Header>
-      <Login></Login>
+      <Login history={props.history}></Login>
     </>
   );
 };

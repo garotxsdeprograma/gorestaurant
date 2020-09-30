@@ -3,10 +3,10 @@ import * as S from "./style";
 import { FiPlusSquare } from 'react-icons/fi';
 
 
-const Button = (props, { placeholder, type }) => {
+const Button = (props) => {
     return (
         <>
-            <S.ContainerBox>
+            <S.ContainerBox onClick={props.onClick}>
                 {props.children}
                <S.ContainerIcon><FiPlusSquare  /></S.ContainerIcon>
             </S.ContainerBox>
